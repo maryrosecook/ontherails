@@ -1,0 +1,9 @@
+log/*.log
+tmp/**/*
+.DS_Store
+Capfile
+config/database.yml
+config/deploy.rb
+doc/commands
+doc/ideas
+doc/next_live

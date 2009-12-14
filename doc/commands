@@ -1,0 +1,27 @@
+* log into db
+	mysql db --user=root --password=
+
+* backup db
+	mysqldump db --user=root --password= > backup.sql
+
+* import local db into remote db
+	scp -P 30000 ~/Desktop/sql.sql admin@server:/home/username/
+	ssh -p 30000 admin@server
+	mysql --user=root db < sql.sql --password=h
+	
+* nginx:
+	sudo /etc/init.d/nginx stop
+	sudo /etc/init.d/nginx start
+	
+* run unit tests:
+	rake test
+	rake test:units TEST=test/unit/h.rb
+	
+* grab log
+	scp -P 30000 admin@theperceptron.com:/home/admin/public_html/theperceptron.com/current/log/production.log ~/Desktop/
+	
+* Run Rails code:
+	- local: 
+		/usr/bin/ruby script/runner -e development ''
+	- remote:
+		cd /home/admin/public_html/theperceptron.com/current && /usr/bin/ruby script/runner -e production '' > ~/cronlogs/notifications.log
